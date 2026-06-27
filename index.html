@@ -319,6 +319,12 @@
 	function initEmbeddedMessaging() {
 		try {
 			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+
+			window.addEventListener("onEmbeddedMessagingReady", () => {
+				console.log("Received the onEmbeddedMessagingReady event...");
+				embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({ "customerEmail": "test" });
+			});
+
 			embeddedservice_bootstrap.init(
 				'00DdL00000yWhFN',
 				'Margin_Watch_Enhanced_Chat',
